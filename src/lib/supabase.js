@@ -2,11 +2,9 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-// Constants for Supabase connection
-const SUPABASE_URL = "https://dscksmpcnanobrauqowj.supabase.co";
-
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzY2tzbXBjbmFub2JyYXVxb3dqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0MDE4MDIsImV4cCI6MjA1ODk3NzgwMn0.zrHCAKik-zodrL9ncFRMPiQL0SX9sarQQhVatIe27EE";
+// Constants for Supabase connection (from environment variables)
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 // Create a browser client with proper storage settings
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {

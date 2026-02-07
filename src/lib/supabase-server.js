@@ -7,8 +7,8 @@ import { createClient } from "@supabase/supabase-js";
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 
-// Use service role key for server operations
-const SUPABASE_SERVICE_ROLE_KEY = SUPABASE_ANON_KEY;
+// Use service role key for server operations (falls back to anon key if not set)
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_KEY || SUPABASE_ANON_KEY;
 
 // Function to create a Supabase client with server context
 export async function createServerSupabaseClient() {
